@@ -39,13 +39,59 @@ class ArticleController extends AdminCommonController{
         }
     }
 
+    //查询
+    public function read(){
+        $id = I('get.id',0);
+        if($id==0){
+            $this->error('Unkown param');
+        }else{
+            $article = D('Article')->read($id);
+            if($article){
+                $this->assign('article', $article);
+            }else{
+                $this->error('Param error');
+            }
+        }
+        $this->assign('title', $article['title'].' - Modify');
+        $this->display();
+    }
+
+    //修改
+    public function modify(){
+        $id = I('post.id',0);
+        $title = I('post.title');
+        $type = I('post.type');
+        $content = I('post.content');
+        if($id==0){
+            $this->error('Unkown param');
+        }else{
+            if(D('Article')->modify($id,$title,$type,$content) > 0){
+                $this->ajaxReturn(1);
+            }else{
+                $this->ajaxReturn(2);
+            }
+        }
+    }
+
+    //动态添加文章类型
+    public function addType(){
+        $typename = I('post.typename');
+        $id = D('Article')->addType($typename);
+        if($id){
+            $this->ajaxReturn(array('id'=>$id,'typename'=>$typename));
+        }else{
+            $this->ajaxReturn(0);
+        }
+    }
+
     //获取文章列表
     public function articleList(){
         $typeId = I('get.type',0,'intval');
         $articleList = D('Article')->articleList($typeId);
+        //获取标题
         $this->assign('articleList',$articleList);
         $this->assign('mark','list');
-        $this->assign('title','Article List');
+        $this->assign('title','Article list');
         $this->display();
     }
 }

@@ -2,7 +2,7 @@
 <block name="main">
     <div class="well-main layui-form">
         <div class="well-editor" style="">
-            <input type="text" id="title" name="title" required  lay-verify="required" placeholder="   请输入标题" autocomplete="off" class="layui-input well-title-input">
+            <input type="text" id="title" name="title" required  lay-verify="required" placeholder="Input title" autocomplete="off" class="layui-input well-title-input">
             <div id="well-editormd">
                 <textarea id="content" style="display:none;"></textarea>
             </div>
@@ -31,7 +31,44 @@
                         <option value="{$vo.id}">{$vo.typename}</option>
                         </volist>
                     </select>
-                    <input type="button" class="layui-btn layui-btn-normal" value="Create new type">
+                    <div class="well-newType" id="newType" style="display: none;">
+                        <input id="newTypeInput" class="layui-input" type="text" name="newTypeInput">
+                        <input id="well-newType-add" class="layui-btn layui-btn-primary" type="button" value="Add">
+                        <input id="well-newType-close" class="layui-btn layui-btn-warm" type="button" value="Cancle">
+                    </div>
+                    <input id="well-newType-open" type="button" class="layui-btn layui-btn-normal" value="Create new type">
+                    <script>
+                        layui.use('layer', function(){ var layer = layui.layer;});
+                        $('#well-newType-open').click(function() {
+                            $('#newType').show(200);
+                            $('#well-newType-open').hide(200);
+                        });
+                        $('#well-newType-close').click(function() {
+                            $('#newType').hide(200);
+                            $('#well-newType-open').show(200);
+                        });
+                        $('#well-newType-add').click(function() {
+                            var newType = $('#newTypeInput').val();
+                            $.ajax({
+                                type:'POST',
+                                url:think + '/Article/addType.html',
+                                data:{
+                                    typename:newType,
+                                },
+                                success:function (data) {
+                                    if(data==0){
+                                        layer.msg('Undefined error');
+                                    }else{
+                                        var h = '<dd lay-value="'+data.id+'">'+data.typename+'</dd>';
+                                        $('.layui-anim-upbit').append(h);
+                                        layer.msg('Add success');
+                                        $('#newType').hide(200);
+                                        $('#well-newType-open').show(200);
+                                    }
+                                }
+                            });
+                        });
+                    </script>
                 </div>
               </div>
             </div>

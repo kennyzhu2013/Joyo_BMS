@@ -14,5 +14,6 @@ body{background-color: #eee;padding-top: 60px;}
 .well-ctl .layui-btn{margin-top: 5px;}
 .well-ctl .layui-btn+.layui-btn{margin-left: 0px;}
 .well-title-input{margin-bottom: 15px;}
+.well-newType{padding: 15px;margin-top: 5px;border:1px solid #eee;}
 
 .footer{clear: both}
