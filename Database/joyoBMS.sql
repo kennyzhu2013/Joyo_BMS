@@ -24,18 +24,18 @@ CREATE TABLE `article` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `typeId` int(9) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `intro` varchar(255) DEFAULT NULL,
+  `intro` text,
   `content` text,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_typeId` (`typeId`),
   CONSTRAINT `fk_typeId` FOREIGN KEY (`typeId`) REFERENCES `articletype` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `article` */
 
 insert  into `article`(`id`,`typeId`,`title`,`intro`,`content`,`date`) values 
-(1,2,'啊',NULL,'&lt;p&gt;啊&lt;/p&gt;',NULL);
+(2,1,'写一篇来删','<p>写一篇来删</p>','<p>写一篇来删</p>','2017-08-03 17:17:10');
 
 /*Table structure for table `articletype` */
 
