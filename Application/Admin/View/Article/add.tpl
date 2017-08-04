@@ -20,7 +20,9 @@
                 });
             </script>
         </div>
+        <script></script>
         <div class="well-ctl">
+            <script>layui.use('form', function(){var form = layui.form();});</script>
             <div class="layui-collapse">
               <div class="layui-colla-item">
                 <h2 class="layui-colla-title">Type</h2>
@@ -37,42 +39,9 @@
                         <input id="well-newType-close" class="layui-btn layui-btn-warm" type="button" value="Cancle">
                     </div>
                     <input id="well-newType-open" type="button" class="layui-btn layui-btn-normal" value="Create new type">
-                    <script>
-                        layui.use('layer', function(){ var layer = layui.layer;});
-                        $('#well-newType-open').click(function() {
-                            $('#newType').show(200);
-                            $('#well-newType-open').hide(200);
-                        });
-                        $('#well-newType-close').click(function() {
-                            $('#newType').hide(200);
-                            $('#well-newType-open').show(200);
-                        });
-                        $('#well-newType-add').click(function() {
-                            var newType = $('#newTypeInput').val();
-                            $.ajax({
-                                type:'POST',
-                                url:think + '/Article/addType.html',
-                                data:{
-                                    typename:newType,
-                                },
-                                success:function (data) {
-                                    if(data==0){
-                                        layer.msg('Undefined error');
-                                    }else{
-                                        var h = '<dd lay-value="'+data.id+'">'+data.typename+'</dd>';
-                                        $('.layui-anim-upbit').append(h);
-                                        layer.msg('Add success');
-                                        $('#newType').hide(200);
-                                        $('#well-newType-open').show(200);
-                                    }
-                                }
-                            });
-                        });
-                    </script>
                 </div>
               </div>
             </div>
-            <script>layui.use('form', function(){var form = layui.form();});</script>
             <div class="layui-collapse">
               <div class="layui-colla-item">
                 <h2 class="layui-colla-title">Publish</h2>

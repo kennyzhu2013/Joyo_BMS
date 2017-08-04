@@ -46,12 +46,14 @@ class ArticleController extends AdminCommonController{
             $this->error('Unkown param');
         }else{
             $article = D('Article')->read($id);
+            $typeId = D('Article')->getType($id);
             if($article){
                 $this->assign('article', $article);
             }else{
                 $this->error('Param error');
             }
         }
+        $this->assign('typeId', $typeId['typeid']);
         $this->assign('title', $article['title'].' - Modify');
         $this->display();
     }

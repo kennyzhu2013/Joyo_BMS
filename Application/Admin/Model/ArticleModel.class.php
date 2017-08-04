@@ -39,7 +39,7 @@ class ArticleModel{
     public function modify($id,$title,$type,$content){
         $article = M('article');
         $data['title'] = $title;
-        $data['type']  = $type;
+        $data['typeId']  = $type;
         $data['content'] = $content;
         $data['intro']   = mb_substr($content, 0,120,'utf-8');
         $data['date']    = date("Y-m-d H:i:s");
@@ -53,6 +53,12 @@ class ArticleModel{
         $data['typename'] = $typename;
         $addstat = $articleType->add($data);
         return $addstat;
+    }
+
+    //得到文章类型
+    public function getType($id){
+        $typeId = M('article')->field('typeId')->where(array('id'=>$id))->find();
+        return $typeId;
     }
 
     //获取分类列表

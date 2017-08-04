@@ -1,10 +1,10 @@
+layui.use('layer', function(){ var layer = layui.layer;});
 $('.loginform input').keydown(function(e) {
     if(e.keyCode == 13){
         $('#well-submit-btn').click();
     }
 });
 $('#well-submit-btn').click(function() {
-    layui.use('layer', function(){ var layer = layui.layer;});
     var username = $('#username').val();
     var password = $('#password').val();
     var url = think+'/Admin/index.html';
@@ -36,7 +36,6 @@ $('#well-submit-btn').click(function() {
 });
 
 $('#submitArticle').click(function() {
-    layui.use('layer', function(){var layer = layui.layer;});
     var title   = $('#title').val();
     var type    = $('#type').val();
     var content = $('#content').val();
@@ -106,6 +105,7 @@ $('.mod').click(function() {
     var url = think+'/Article/read/id/'+id;
     window.location.href = url;
 });
+
 $('.del').click(function() {
     var id = $(this).attr('cid');
     var url = think+'/Article/articleList.html';
@@ -127,6 +127,41 @@ $('.del').click(function() {
                 default:
                     layer.msg('Undefined error');
                     break;
+            }
+        }
+    });
+});
+
+$('#well-newType-open').click(function() {
+    $('#newType').show(200);
+    $('#well-newType-open').hide(200);
+});
+$('#well-newType-close').click(function() {
+    $('#newType').hide(200);
+    $('#well-newType-open').show(200);
+});
+$('#well-newType-add').click(function() {
+    var newType = $('#newTypeInput').val();
+    $.ajax({
+        type:'POST',
+        url:think + '/Article/addType.html',
+        data:{
+            typename:newType,
+        },
+        success:function (data) {
+            if(data==0){
+                layer.msg('Undefined error');
+            }else{
+                var h = '<option value="'+data.id+'">'+data.typename+'</option>';
+
+                $('#type').append(h);
+                $('#type').val(data.id);
+                layui.use('form', function(){
+                    var form = layui.form();
+                    form.render('select');
+                });
+                $('#newType').hide(200);
+                $('#well-newType-open').show(200);
             }
         }
     });

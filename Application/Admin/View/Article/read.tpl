@@ -21,6 +21,7 @@
             </script>
         </div>
         <div class="well-ctl">
+            <script>layui.use('form', function(){var form = layui.form();});</script>
             <div class="layui-collapse">
               <div class="layui-colla-item">
                 <h2 class="layui-colla-title">Type</h2>
@@ -31,13 +32,18 @@
                         <option value="{$vo.id}">{$vo.typename}</option>
                         </volist>
                     </select>
-                    <input type="hidden" id="cid" name="cid" value="{$vo.id}">
-                    <script>$('#type').val('{$vo.id}');</script>
-                    <input type="button" class="layui-btn layui-btn-normal" value="Create new type">
+                    <input type="hidden" id="cid" name="cid" value="{$article.id}">
+                    <script>$('#type').val('{$typeId}');</script>
+                    <div class="well-newType" id="newType" style="display: none;">
+                        <input id="newTypeInput" class="layui-input" type="text" name="newTypeInput">
+                        <input id="well-newType-add" class="layui-btn layui-btn-primary" type="button" value="Add">
+                        <input id="well-newType-close" class="layui-btn layui-btn-warm" type="button" value="Cancle">
+                    </div>
+                    <input id="well-newType-open" type="button" class="layui-btn layui-btn-normal" value="Create new type">
                 </div>
               </div>
             </div>
-            <script>layui.use('form', function(){var form = layui.form();});</script>
+            
             <div class="layui-collapse">
               <div class="layui-colla-item">
                 <h2 class="layui-colla-title">Publish</h2>
