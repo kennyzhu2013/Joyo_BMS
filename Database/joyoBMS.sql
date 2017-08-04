@@ -22,20 +22,21 @@ DROP TABLE IF EXISTS `article`;
 
 CREATE TABLE `article` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `typeId` int(9) DEFAULT NULL,
+  `typeid` int(9) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `intro` text,
   `content` text,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_typeId` (`typeId`),
+  KEY `fk_typeId` (`typeid`),
   CONSTRAINT `fk_typeId` FOREIGN KEY (`typeId`) REFERENCES `articletype` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `article` */
 
-insert  into `article`(`id`,`typeId`,`title`,`intro`,`content`,`date`) values 
-(2,1,'写一篇来删','<p>写一篇来删</p>','<p>写一篇来删</p>','2017-08-03 17:17:10');
+insert  into `article`(`id`,`typeid`,`title`,`intro`,`content`,`date`) values 
+(2,1,'写一篇来删','# 通过markdow显示的文章','# 通过markdow显示的文章','2017-08-04 11:39:56'),
+(3,2,'通过新分类发布','通过新分类发布通过新分类发布通过新分类发布','通过新分类发布通过新分类发布通过新分类发布','2017-08-04 11:39:18');
 
 /*Table structure for table `articletype` */
 
@@ -45,13 +46,14 @@ CREATE TABLE `articletype` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `typename` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 /*Data for the table `articletype` */
 
 insert  into `articletype`(`id`,`typename`) values 
 (1,'PHP'),
-(2,'Java');
+(2,'Java'),
+(34,'新分类修改');
 
 /*Table structure for table `user` */
 
