@@ -1,11 +1,11 @@
 <div class="well-nav">
-    <ul class="layui-nav" lay-filter="nav">
+    <ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="nav">
         <li class="layui-nav-item <eq name='mark' value='main'>layui-this</eq>"><a href="{:U('Admin/index')}"><i class="layui-icon">&#xe638;</i>&emsp;Main</a></li>
-        <li class="layui-nav-item <eq name='mark' value='list'>layui-this</eq>">
-            <a href="{:U('Article/articleList')}"><i class="layui-icon">&#xe63c;</i>&emsp;Article</a>
+        <li class="layui-nav-item">
+            <a href="javascript:;"><i class="layui-icon">&#xe63c;</i>&emsp;Article</a>
             <dl class="layui-nav-child">
                 <volist name="typeList" id="vo">
-                <dd><a href="{:U('Article/articleList',array('type'=>$vo['id']))}">{$vo.typename}</a></dd>
+                <dd class="<eq name='mark' value='list'><eq name='type' value='$vo.id'>layui-this</eq></eq>"><a href="{:U('Article/articleList',array('type'=>$vo['id']))}">&emsp;<i class="layui-icon">&#xe602;</i>&emsp;{$vo.typename}</a></dd>
                 </volist>
             </dl>
         </li>

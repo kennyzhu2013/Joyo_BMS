@@ -1,14 +1,15 @@
 <extend name="Public/common" />
 <block name="main">
     <div class="well-main">
-        <table class="layui-table">
+        <h1>All of {$typeTitle} Article</h1>
+        <table class="layui-table" lay-even lay-skin="nob">
             <thead>
                 <tr>
                     <th width="60">Id</th>
-                    <th width="300">Title</th>
+                    <th width="250">Title</th>
                     <th>Intro</th>
                     <th width="200">Date</th>
-                    <th width="200">Operation</th>
+                    <th width="170">Operation</th>
                 </tr>
             </thead>
             <tbody>

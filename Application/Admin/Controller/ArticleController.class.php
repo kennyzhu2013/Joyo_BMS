@@ -2,6 +2,10 @@
 namespace Admin\Controller;
 use Think\Controller;
 class ArticleController extends AdminCommonController{
+    public function index(){
+        $this->redirect('articleList');
+    }
+
     //添加
     public function add(){
         $this->assign('mark','add');
@@ -46,14 +50,14 @@ class ArticleController extends AdminCommonController{
             $this->error('Unkown param');
         }else{
             $article = D('Article')->read($id);
-            $typeId = D('Article')->getType($id);
+            $typeId = D('Article')->getTypeId($id);
             if($article){
                 $this->assign('article', $article);
             }else{
                 $this->error('Param error');
             }
         }
-        $this->assign('typeId', $typeId['typeid']);
+        $this->assign('typeId', $typeId);
         $this->assign('title', $article['title'].' - Modify');
         $this->display();
     }
@@ -91,9 +95,13 @@ class ArticleController extends AdminCommonController{
         $typeId = I('get.type',0,'intval');
         $articleList = D('Article')->articleList($typeId);
         //获取标题
+        $typeName = D('Article')->getTypeName($typeId);
+        $typeTitle = $typeName == null ? 'All' : $typeName;
         $this->assign('articleList',$articleList);
+        $this->assign('type',$typeId);
         $this->assign('mark','list');
-        $this->assign('title','Article list');
+        $this->assign('typeTitle',$typeTitle);
+        $this->assign('title',$typeTitle . ' - Article list');
         $this->display();
     }
 }

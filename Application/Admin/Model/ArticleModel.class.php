@@ -55,10 +55,18 @@ class ArticleModel{
         return $addstat;
     }
 
-    //得到文章类型
-    public function getType($id){
+    /**
+     * @param  int $id 文章id
+     * @return int     文章类型id
+     */
+    public function getTypeId($id){
         $typeId = M('article')->field('typeId')->where(array('id'=>$id))->find();
-        return $typeId;
+        return $typeId['typeid'];
+    }
+
+    public function getTypeName($id){
+        $typeName = M('articletype')->field('typename')->where(array('id'=>$id))->find();
+        return $typeName['typename'];
     }
 
     //获取分类列表
@@ -69,8 +77,8 @@ class ArticleModel{
 
     //获取文章列表
     public function articleList($typeId){
-        $condition = $typeId == 0 ? '':array('typeId'=>$typeId);
-        $articleList = M('article')->field('id,title,intro,date')->where($condition)->select();
+        $condition = $typeId == 0 ? '' : array('typeId'=>$typeId);
+        $articleList = M('article')->field('id,typeId,title,intro,date')->where($condition)->select();
         return $articleList;
     }
 }
