@@ -7,7 +7,7 @@ class ArticleModel{
         $article = M('article');
         $data['title']   = $title;
         $data['typeId']  = $type;
-        $data['intro']   = mb_substr($content, 0,120,'utf-8');
+        $data['intro']   = mb_substr($content, 0,40,'utf-8');
         $data['content'] = $content;
         $data['date']    = date("Y-m-d H:i:s");
         $addstat = $article->add($data);
@@ -41,7 +41,7 @@ class ArticleModel{
         $data['title'] = $title;
         $data['typeId']  = $type;
         $data['content'] = $content;
-        $data['intro']   = mb_substr($content, 0,120,'utf-8');
+        $data['intro']   = mb_substr($content, 0,40,'utf-8');
         $data['date']    = date("Y-m-d H:i:s");
         $modifystat = $article->where(array('id'=>$id))->save($data);
         return $modifystat;
@@ -75,10 +75,23 @@ class ArticleModel{
         return $articleType;
     }
 
+    //获取分类数量
+    public function countType(){
+         $typeNum = M('articletype')->count('id');
+         return $typeNum;
+    }
+
+    //获取文章数量
+    public function countArticle(){
+        $articleNum = M('article')->count('id');
+        return $articleNum;
+    }
+
     //获取文章列表
     public function articleList($typeId){
+        //参数为0时 查询所有文章
         $condition = $typeId == 0 ? '' : array('typeId'=>$typeId);
-        $articleList = M('article')->field('id,typeId,title,intro,date')->where($condition)->select();
+        $articleList = M('article')->field('id,typeId,title,intro,date')->where($condition)->order('date DESC')->select();
         return $articleList;
     }
 }

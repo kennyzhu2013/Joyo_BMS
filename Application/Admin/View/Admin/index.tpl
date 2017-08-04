@@ -7,9 +7,9 @@
                     <legend>Overview</legend>
                     <div class="layui-field-box">
                         <div class="layui-btn-group">
-                            <a class="layui-btn" href="#">共有12篇文章</a>
-                            <a class="layui-btn" href="#">共有3个分类</a><br>
-                            <a class="layui-btn layui-btn-normal" href="#">发布新的文章</a>
+                            <a class="layui-btn" href="#">共有{$articleNum}篇文章</a>
+                            <a class="layui-btn" href="#">共有{$typeNum}个分类</a><br>
+                            <a class="layui-btn layui-btn-normal" href="{:U('Article/add')}">发布新的文章</a>
                             <a class="layui-btn layui-btn-normal" href="#">添加新的分类</a>
                         </div>
                     </div>
@@ -78,25 +78,22 @@
             <table id="rtable" class="layui-table">
                 <thead>
                     <tr>
-                        <th colspan="3" style="text-align: center;">最近发布</th>
+                        <th colspan="3" style="text-align: center;">最近发布的十篇</th>
                     </tr>
                     <tr>
-                        <th width="200">标题</th>
+                        <th width="150">标题</th>
                         <th>简介</th>
-                        <th width="200">查看</th>
+                        <th width="200">操作</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <volist name="artcileList" id="vo" offset="0" length="10">
                     <tr>
-                        <th>标题标题标题标题标题</th>
-                        <th>简介</th>
+                        <th>{$vo.title}</th>
+                        <th>{$vo.intro}</th>
                         <th>操作操作操作操作</th>
                     </tr>
-                    <tr>
-                        <th>标题标题标题标题标题</th>
-                        <th>简介</th>
-                        <th>操作操作操作操作</th>
-                    </tr>
+                    </volist>
                 </tbody>
             </table>
         </div>

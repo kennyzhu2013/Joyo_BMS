@@ -19,10 +19,10 @@ body{background-color: #eee;}
 .well-newType{padding: 15px;margin-top: 5px;border:1px solid #eee;}
 .layui-btn-group a{margin:5px;}
 
-.well-left{width: 20%;min-height: 600px;float: left}
+.well-left{width: 30%;min-height: 600px;float: left}
 .well-left>div{margin-bottom: 15px;padding:15px;background-color: #fff;}
 .well-weather{}
 
-.well-right{width: 79%;float: right;}
+.well-right{width: 69%;float: right;}
 #rtable{margin:0px;}
 .footer{clear: both}
