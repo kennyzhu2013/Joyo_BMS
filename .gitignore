@@ -1,8 +1,2 @@
-/Application/Runtime
-Application/Common/Conf/config.php
-<<<<<<< HEAD
-Application/Admin/Controller/AdminCommonController.class.php
-=======
->>>>>>> fc540f31316ef667cc979ec4ebacc6b861a0a1fa
-Application/Admin/Controller/AdminCommonController.class.php
+Application/Runtime
 Application/Common/Conf/config.php
