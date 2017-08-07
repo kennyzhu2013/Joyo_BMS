@@ -20,6 +20,7 @@ class IndexController extends Controller {
         if ($username != '' && $password != '') {
             if(D("AdminLogin")->login($username,$password)){
                 session('lt','yes');
+                session('loginTime',time());
                 $this->ajaxReturn(1);
             }else{
                 session('lt','no');

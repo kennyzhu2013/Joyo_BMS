@@ -10,7 +10,6 @@
                             <a class="layui-btn" href="#">共有{$articleNum}篇文章</a>
                             <a class="layui-btn" href="#">共有{$typeNum}个分类</a><br>
                             <a class="layui-btn layui-btn-normal" href="{:U('Article/add')}">发布新的文章</a>
-                            <a class="layui-btn layui-btn-normal" href="#">添加新的分类</a>
                         </div>
                     </div>
                 </fieldset>
