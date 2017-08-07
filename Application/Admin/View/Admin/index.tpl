@@ -10,7 +10,6 @@
                             <a class="layui-btn" href="#">共有{$articleNum}篇文章</a>
                             <a class="layui-btn" href="#">共有{$typeNum}个分类</a><br>
                             <a class="layui-btn layui-btn-normal" href="{:U('Article/add')}">发布新的文章</a>
-                            <a class="layui-btn layui-btn-normal" href="#">添加新的分类</a>
                         </div>
                     </div>
                 </fieldset>
@@ -83,7 +82,7 @@
                     <tr>
                         <th width="150">标题</th>
                         <th>简介</th>
-                        <th width="200">操作</th>
+                        <th width="180">操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,9 +90,10 @@
                     <tr>
                         <th>{$vo.title}</th>
                         <th>{$vo.intro}</th>
-                        <th>操作操作操作操作</th>
+                        <th><input cid="{$vo.id}" class="mod layui-btn layui-btn-normal" type="button" value="Modify"> <input cid="{$vo.id}" class="del layui-btn layui-btn-danger" type="button" value="Delete"></th>
                     </tr>
                     </volist>
+                    <script src="__js__/ajaxSubmit.js"></script>
                 </tbody>
             </table>
         </div>

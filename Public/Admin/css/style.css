@@ -21,8 +21,12 @@ body{background-color: #eee;}
 
 .well-left{width: 30%;min-height: 600px;float: left}
 .well-left>div{margin-bottom: 15px;padding:15px;background-color: #fff;}
-.well-weather{}
-
 .well-right{width: 69%;float: right;}
+
+.well-about{width: 100%;font-size: 16px;background-color: #fff;}
+.well-about-title{font-size: 20px;padding: 15px;line-height: 30px}
+.well-about-content{padding:0 45px 15px 45px;}
+.well-about-content ul li{list-style-type:circle;}
+
 #rtable{margin:0px;}
 .footer{clear: both}

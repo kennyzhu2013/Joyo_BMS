@@ -10,7 +10,7 @@
             </dl>
         </li>
         <li class="layui-nav-item <eq name='mark' value='add'>layui-this</eq>"><a href="{:U('Article/add')}"><i class="layui-icon">&#xe608;</i>&emsp;Write New</a></li>
-        <li class="layui-nav-item"><a href=""><i class="layui-icon">&#xe612;</i>&emsp;About</a></li>
+        <li class="layui-nav-item <eq name='mark' value='about'>layui-this</eq>"><a href="{:U('Admin/about')}"><i class="layui-icon">&#xe612;</i>&emsp;About</a></li>
         <li class="layui-nav-item"><a href="{:U('Index/logout')}"><i class="layui-icon">&#xe64d;</i>&emsp;Logout</a></li>
     </ul>
 </div>
