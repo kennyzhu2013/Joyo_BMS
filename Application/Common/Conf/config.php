@@ -7,7 +7,7 @@ return array(
     'DB_HOST'              => 'localhost',
     'DB_NAME'              => 'joyo_bms',
     'DB_USER'              => 'root',
-    'DB_PWD'               => '',
+    'DB_PWD'               => 'well1995',
     'DB_PORT'              => 3306,
     'DB_PREFIX'            => '',
     'DB_CHARSET'           => 'utf8',
