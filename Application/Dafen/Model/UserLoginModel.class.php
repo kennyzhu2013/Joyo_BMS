@@ -1,7 +1,7 @@
 <?php 
-namespace Admin\Model;
+namespace Dafen\Model;
 use Think\Model;
-class AdminLoginModel{
+class UserLoginModel{
     public function login($username,$password){
         $condition = array('username'=>$username);
         $user = M('user')->where($condition)->find();

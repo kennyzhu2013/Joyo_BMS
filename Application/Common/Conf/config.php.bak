@@ -1,0 +1,20 @@
+<?php
+return array(
+	'MODULE_ALLOW_LIST'    => array('Home','Admin'),
+    'TMPL_TEMPLATE_SUFFIX' => '.tpl',
+    'DEFAULT_MODULE'       => 'Home',
+    'DB_TYPE'              => 'mysqli',
+    'DB_HOST'              => 'localhost',
+    'DB_NAME'              => 'joyo_bms',
+    'DB_USER'              => 'root',
+    'DB_PWD'               => 'well1995',
+    'DB_PORT'              => 3306,
+    'DB_PREFIX'            => '',
+    'DB_CHARSET'           => 'utf8',
+    'URL_MODEL'            => 2,
+    'SHOW_PAGE_TRACE'      => true,
+    'TMPL_CACHE_ON'        => false,
+    'HTML_CACHE_ON'        => false,
+    'URL_CASE_INSENSITIVE' => true,
+    'DEFAULT_FILTER'       => 'trim',
+);

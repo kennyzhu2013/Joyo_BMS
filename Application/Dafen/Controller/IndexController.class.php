@@ -3,6 +3,40 @@ namespace Dafen\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+        $this->display('login');
+    }
+
+		//I方法是ThinkPHP众多单字母函数中的新成员，其命名来自于英文Input（输入），主要用于更加方便和安全的获取系统输入变量，可以用于任何地方，用法格式如下：
+    //I('变量类型.变量名',['默认值'],['过滤方法'])
+    public function login(){
+        if(I('session.lt') == 'yes'){
+            $this->redirect('Admin/index');
+        }else{
+            $this->display(); //login to display...
+        }
+    }
+    
+    public function doLogin(){
+        $username = I('post.username');
+        $password = I('post.password');
+        //1表示正确结果....
+        if ($username != '' && $password != '') {
+            if(D("UserLogin")->login($username,$password)){
+                session('lt','yes');
+                session('loginTime',time());
+                session(array('name'=>'username','expire'=>3600), $username);
+                $this->ajaxReturn(1);
+            }else{
+                session('lt','no');
+                $this->ajaxReturn(2);
+            }
+        }else{
+            $this->ajaxReturn(3);
+        }
+    }
+
+    public function logout(){
+        session('lt','no');
+        $this->redirect('Index/login');
     }
 }
