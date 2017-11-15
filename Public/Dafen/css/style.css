@@ -1,0 +1,32 @@
+input:-webkit-autofill, textarea:-webkit-autofill,select:-webkit-autofill {-webkit-box-shadow: 0 0 0 1000px white inset;}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {-webkit-box-shadow: 0 0 0 1000px white inset;}
+
+body{background-color: #eee;}
+.welcome{padding:15px 0;font-size: 20px;font-weight: bold;color: #666}
+.loginform{width: 500px;height: 230px;border: 1px solid #8b8b8b;padding:15px;position: absolute; left: 0; top: 0; right: 0; bottom: 0;margin: auto;}
+.poweredBy{float: right;color: #666}
+
+.well-nav .layui-nav *{font-size: 16px;}
+.well-nav .layui-nav-tree .layui-nav-item a{height: 50px;line-height: 50px;}
+.well-main{min-width: 1000px;max-width: 100%;overflow:hidden;padding:15px;margin-left: 205px;}
+.well-main h1{font-size: 20px;text-align: center}
+.well-editor{width: 80%;float: left}
+.well-ctl{width: 19%;float: right;}
+.well-ctl .layui-collapse{margin-bottom: 15px;background-color: #fff}
+.well-ctl .layui-btn{margin-top: 5px;}
+.well-ctl .layui-btn+.layui-btn{margin-left: 0px;}
+.well-title-input{margin-bottom: 15px;}
+.well-newType{padding: 15px;margin-top: 5px;border:1px solid #eee;}
+.layui-btn-group a{margin:5px;}
+
+.well-left{width: 30%;min-height: 600px;float: left}
+.well-left>div{margin-bottom: 15px;padding:15px;background-color: #fff;}
+.well-right{width: 69%;float: right;}
+
+.well-about{width: 100%;font-size: 16px;background-color: #fff;}
+.well-about-title{font-size: 20px;padding: 15px;line-height: 30px}
+.well-about-content{padding:0 45px 15px 45px;}
+.well-about-content ul li{list-style-type:circle;}
+
+#rtable{margin:0px;}
+.footer{clear: both}
