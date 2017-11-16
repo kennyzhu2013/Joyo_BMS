@@ -56,7 +56,7 @@
     <tr>
       <th>姓名</th>
       <th lay-data="{field:'username', width:150}">用户名</th>
-      <th lay-data="{field:'zongfen', width:150, sort: true}">分数</th>
+      <th lay-data="{field:'pingjunfen', width:150, sort: true}">分数</th>
     </tr> 
   </thead>
   <tbody>
