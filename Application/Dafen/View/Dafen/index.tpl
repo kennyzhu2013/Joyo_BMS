@@ -14,55 +14,72 @@
     <div class="layui-input-block">
       <select name="obj" lay-verify="required">
         <option value=""></option>
-        <option value="1">周锡飞</option>
-        <option value="2">柴美娟</option>
-        <option value="3">邢伟</option>
-        <option value="4">张兆英</option>
-        <option value="5">李可依</option>
-        <option value="6">顾飞飞</option>
-        <option value="7">夏至瑶</option>
-        <option value="8">路英华</option>
+        <option value="yuanlin">袁琳</option>
+        <option value="liuxiaojie">刘晓杰</option>
+        <option value="kongshenkang">孔圣康</option>
+        <option value="chenyanseng">陈炎森</option>
+        <option value="xiongwei">熊伟 </option>
+        <option value="zhangyun">张云</option>
+        <option value="huxiaofei">胡啸飞</option>
+        <option value="jinfeilai">金飞来</option>
+        <option value="wenjiangpeng">翁江鹏</option>
+        <option value="wukai">吴凯</option>
+        <option value="fengjizhi">冯纪炽</option>
+        <option value="liyuan">李源</option>
+        <option value="liulianzi">刘连子</option>
+        <option value="maxiaokai">马晓凯</option>
+        <option value="chenlong">陈龙</option>
+        <option value="chenxiuhong">陈秀红</option>
       </select>
     </div>
   </div>
 
   <div class="pingfen">
   <div class="layui-form-item">
-    <label class="layui-form-label">教学设计</label>
-    <div class="layui-input-block jiaoxue">
-      <select name="jiaoxue" lay-verify="required">
+    <label class="layui-form-label">个人业绩</label>
+    <div class="layui-input-block yeji">
+      <select name="yeji" lay-verify="required">
         <option value=""></option>
       </select>
-        <p align="right">最高分：40</p>
+        <p align="right">最高分：30</p>
     </div>
   </div>
     <div class="layui-form-item">
-    <label class="layui-form-label">内容呈现</label>
-    <div class="layui-input-block neirong">
-      <select name="neirong" lay-verify="required">
+    <label class="layui-form-label">知识分享</label>
+    <div class="layui-input-block fenxiang">
+      <select name="fenxiang" lay-verify="required">
         <option value=""></option>
       </select>
-        <p align="right" >最高分：25</p>
+        <p align="right" >最高分：5</p>
     </div>
   </div>
     <div class="layui-form-item">
-    <label class="layui-form-label">技术应用</label>
-    <div class="layui-input-block jishu">
-      <select name="jishu" lay-verify="required">
+    <label class="layui-form-label">技术答辩</label>
+    <div class="layui-input-block dabian">
+      <select name="dabian" lay-verify="required">
         <option value=""></option>
       </select>
-        <p align="right">最高分：25</p>
+        <p align="right">最高分：30</p>
     </div>
   </div>
-    <div class="layui-form-item">
-    <label class="layui-form-label chuangxin">创新与实用</label>
-    <div class="layui-input-block chuangxin">
-      <select name="chuangxin" lay-verify="required">
-        <option value=""></option>
-      </select>
-        <p align="right">最高分：10</p>
-    </div>
-  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label teamwork">团队提升</label>
+	    <div class="layui-input-block teamwork">
+	      <select name="teamwork" lay-verify="required">
+	        <option value=""></option>
+	      </select>
+	        <p align="right">最高分：5</p>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">技术方案</label>
+	    <div class="layui-input-block fangan">
+	      <select name="fangan" lay-verify="required">
+	        <option value=""></option>
+	      </select>
+	        <p align="right">最高分：30</p>
+	    </div>
+	  </div>
   </div>
 
 <div class="layui-form-item">
@@ -75,19 +92,23 @@
 </form>
     <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
 <script>
+//取值范围...
 'use strict';
 $(function () {
-    for (var i = 1; i <= 40; i++) {
-        $(".jiaoxue select").append('<option value="' + i + '">' + i + '</option>');
+    for (var i = 1; i <= 30; i++) {
+        $(".yeji select").append('<option value="' + i + '">' + i + '</option>');
     }
-    for (var i = 1; i <= 25; i++) {
-        $(".neirong select").append('<option value="' + i + '">' + i + '</option>');
+    for (var i = 1; i <= 5; i++) {
+        $(".fenxiang select").append('<option value="' + i + '">' + i + '</option>');
     }
-    for (var i = 1; i <= 25; i++) {
-        $(".jishu select").append('<option value="' + i + '">' + i + '</option>');
+    for (var i = 1; i <= 30; i++) {
+        $(".dabian select").append('<option value="' + i + '">' + i + '</option>');
     }
-    for (var i = 1; i <= 10; i++) {
-        $(".chuangxin select").append('<option value="' + i + '">' + i + '</option>');
+    for (var i = 1; i <= 5; i++) {
+        $(".teamwork select").append('<option value="' + i + '">' + i + '</option>');
+    }
+    for (var i = 1; i <= 5; i++) {
+        $(".fangan select").append('<option value="' + i + '">' + i + '</option>');
     }
 });
 
@@ -100,7 +121,7 @@ layui.use('form', function(){
         var cmd = data.field;
         //layer.msg(cmd);
         $.ajax({
-            url: "request.ashx?flag="+Math.random(),
+            url: "{:U('Dafen/gettable')}",
             type: "POST",
             data: cmd,
             success: function (res) {
