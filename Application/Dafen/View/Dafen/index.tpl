@@ -1,6 +1,6 @@
 <extend name="Public/common" />
 <block name="main">
-<H1 style="text-align: center;margin: 20px auto;font-size: 20px;">评委打分</H1>
+<H1 style="text-align: center;margin: 20px auto;font-size: 20px;">评委打分,0分表示不修改</H1>
 
 <form class="layui-form" action="" style="width:360px;" target="nm_iframe">
 <div class="layui-form-item">
@@ -121,7 +121,7 @@ layui.use('form', function(){
         var cmd = data.field;
         //layer.msg(cmd);
         $.ajax({
-            url: "{:U('Dafen/gettable')}",
+            url: "{:U('Dafen/upscore')}",
             type: "POST",
             data: cmd,
             success: function (res) {

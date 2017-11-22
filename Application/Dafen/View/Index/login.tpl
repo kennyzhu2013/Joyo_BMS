@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="__css__/layui.css">
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="loginform">
-        <div class="welcome">欢迎来到打分评分页面 <i class="layui-icon">&#xe620;</i></div>
+        <div class="welcome">Welcome to Pingfen-Page! <i class="layui-icon">&#xe620;</i></div>
         <form class="layui-form" action="{:U('Index/doLogin')}" method="post">
             <div class="layui-form-item">
                     <input type="text" name="username" id="username" required  lay-verify="required"  placeholder="Input your username" autocomplete="off" class="layui-input">
