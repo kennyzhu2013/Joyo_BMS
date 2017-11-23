@@ -24,7 +24,7 @@
                     <input type="password" name="password" id="password" required  lay-verify="required"  placeholder="Input your password" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-item">
-                    <input id="well-submit-btn" class="layui-btn" type="button" value="Login">
+                    <input id="well-submit-btn" class="layui-btn" type="buwtton" value="Login">
                     <input class="layui-btn layui-btn-primary" type="reset" value="Reset">
             </div>
             <span class="poweredBy">Powered By wellCh4n from China</span>

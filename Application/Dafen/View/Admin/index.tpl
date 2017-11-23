@@ -49,7 +49,7 @@
 </div>
 
 <!--转义&apos;..-->
-<table class="layui-table" lay-data="{height:315, url:'{:U(&apos;Admin/gettable&apos;)}', page:true, id:'test'}" lay-filter="test">
+<table class="layui-table" lay-data="{height:315, url:'{:U('Admin/gettable')}', page:true, id:'test'}" lay-filter="test">
   <colgroup>
   </colgroup>
   <thead>

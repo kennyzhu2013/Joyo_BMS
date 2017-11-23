@@ -42,7 +42,7 @@ class PingfenModel{
     //查询所有平均分...
     // DataTable tb = SQLHelper.GetTable("select uid,Round(convert(float,sum(zongfen)-max(zongfen)-min(zongfen))/(count(*)-2),2) as mark,max(zongfen) as zuida from pingfen group by uid having count(*)>2");
     public function getPingjunfen(){
-        $pingfenResult = M('pingfen')->field('username, round(convert(sum(zongfen)/count(*), float),2) as mark')->group('username')->select();
+        $pingfenResult = M('pingfen')->field('username, round(convert(sum(zongfen)/count(*), float),2) as pingjunfen')->group('username')->select();
         return $pingfenResult;
     }
 

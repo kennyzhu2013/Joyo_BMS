@@ -10,7 +10,7 @@ class IndexController extends Controller {
     //I('变量类型.变量名',['默认值'],['过滤方法'])
     public function login(){
         if(I('session.lt') == 'yes'){
-            $this->redirect('Admin/index');
+            $this->redirect('Dafen/index');
         }else{
             $this->display(); //login to display...
         }
